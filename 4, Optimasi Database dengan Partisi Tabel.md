@@ -22,6 +22,7 @@ Namun, ada beberapa hal yang perlu diperhatikan dalam penggunaan partisi:
 
 ## **Kesimpulan**  
 Penggunaan partisi pada tabel tr_penjualan_partisi menunjukkan peningkatan performa yang signifikan ketika query menggunakan filter berdasarkan tgl_transaksi. Hal ini terjadi karena MySQL hanya membaca bagian tabel yang relevan, menghindari pemindaian seluruh tabel (full table scan). Dengan demikian, partisi sangat efektif untuk skenario yang sering melakukan pencarian data berdasarkan kolom yang dijadikan dasar partisi.
+
 Namun, saat query menggunakan filter pada kolom lain seperti kode_cabang, performa justru bisa lebih lambat dibandingkan tabel tanpa partisi. MySQL tetap harus membaca semua partisi untuk menemukan data yang sesuai, sehingga keuntungan partisi menjadi kurang optimal. Oleh karena itu, penggunaan partisi harus disesuaikan dengan pola query yang paling sering digunakan agar memberikan manfaat maksimal dalam pengolahan data.
 
 ## **Bukti Dukung**  
