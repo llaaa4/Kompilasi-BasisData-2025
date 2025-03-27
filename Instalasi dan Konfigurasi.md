@@ -88,7 +88,8 @@ a.   port dari default 3306 menjadi 3309
  ![image](https://github.com/user-attachments/assets/aed47931-3169-49db-92f5-316b93d7ff86)
 −    Sebelum ganti port menjadi 3309, stop mysql terlebih dahulu di Terminal Admin
 ![image](https://github.com/user-attachments/assets/aff1c677-4df8-44f4-af7b-5c8b48b566bd)
--    Setelah port diubah, jalan kan lagi mysql di Terminal Admin
+
+−    Setelah port diubah, jalan kan lagi mysql di Terminal Admin
 ![image](https://github.com/user-attachments/assets/e59043a8-c5da-44a7-b959-41c27ef2b8ea)
 
 −    Kemudian jalankan lagi untuk mengecek yang telah diubah (After)
