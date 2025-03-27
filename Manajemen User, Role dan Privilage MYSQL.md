@@ -15,12 +15,12 @@ Beberapa tantangan dalam manajemen pengguna di MySQL antara lain:
 - Membuat user baru:
   ```sql
   CREATE USER 'della'@'localhost' IDENTIFIED BY 'della';
-CREATE USER 'alivia'@'localhost' IDENTIFIED BY 'alivia';
+  CREATE USER 'alivia'@'localhost' IDENTIFIED BY 'alivia';
   ```
 - Menghapus user:
   ```sql
- CREATE USER 'veri'@'localhost' IDENTIFIED BY 'veri';
-DROP USER ‘veri’@’localhost’;
+  CREATE USER 'veri'@'localhost' IDENTIFIED BY 'veri';
+  DROP USER ‘veri’@’localhost’;
   ```
 
 ### b. Manajemen Hak Akses dan Privilege
@@ -37,12 +37,11 @@ DROP USER ‘veri’@’localhost’;
 Sejak MySQL 8.0, fitur **role** diperkenalkan untuk mempermudah pengelolaan hak akses:
 - Membuat role:
   ```sql
- CREATE ROLE 'role_della_select_insert';
+  CREATE ROLE 'role_della_select_insert';
   ```
 - Memberikan privilege ke role:
   ```sql
-  GRANT SELECT, INSERT ON 06_a_veri_mhs.* TO
-'role_della_select_insert';
+  GRANT SELECT, INSERT ON 06_a_veri_mhs.* TO 'role_della_select_insert';
   ```
 - Memberikan role kepada user:
   ```sql
@@ -105,10 +104,7 @@ dan tampilkan hasilnya.
  ![image](https://github.com/user-attachments/assets/bb4cbfcb-b4e0-4e03-abe2-8dd19e2a069b)
 
 10.  Lakukan  konfigurasi  untuk  proses  monitoring  proses  seperti  contoh  diatas,  dan  lakukan beberapa kali proses query. Kemudian lihat di log nya dan tampilkan hasilnya.  
-- TABEL DI USER IRFAN <br>
 ![image](https://github.com/user-attachments/assets/e854b476-5817-49d0-aaec-02c6d909e944)
-
-- TABEL DI USER ROOT <br>
 ![image](https://github.com/user-attachments/assets/063d6efb-fb94-45bd-a949-ae2d7bfea6e5)
 
 
