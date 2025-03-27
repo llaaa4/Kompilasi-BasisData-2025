@@ -34,7 +34,10 @@ Berikut langkah-langkah untuk menginstal dan mengonfigurasi MySQL secara optimal
    ```sql
    SHOW VARIABLES WHERE Variable_name IN ('port','innodb_buffer_pool_size');
    ```
-3. Cari file `my.ini` menggunakan `%PROGRAMDATA%`.
+3. Buka melalui notepad.
+   ```sql
+   notepad "C:\ProgramData\MySQL\MySQL Server 8.0\my.ini".
+   ```
 4. Buka file `my.ini` dan ubah nilai `port` dari `3306` ke `3309`.
 5. Ubah dari `128M` ke `4096M`.
 6. Stop MySQL sebelum menyimpan perubahan.
@@ -72,42 +75,34 @@ Penerapan instalasi dan konfigurasi MySQL yang tepat menjadi langkah awal pentin
 Konfigurasi pada MySQL
 a.   port dari default 3306 menjadi 3309
 −    Masuk ke mysql menggunakan command prompt
- ![1](https://github.com/user-attachments/assets/20fbd5c4-c540-46a9-8e60-5dee0951794f)
- 
+ ![image](https://github.com/user-attachments/assets/8d8f0647-81a3-430e-8d0f-5c10949e932e)
 −    Cek port menggunakan show variables like ‘port’; (before)
-  ![2](https://github.com/user-attachments/assets/10922aba-44ce-4ab0-b92d-89b46606a087)
+  ![image](https://github.com/user-attachments/assets/96ea249f-1681-4244-a7dc-651e62fa485f)
 −    Letak my.ini <br>
- ![3](https://github.com/user-attachments/assets/0b789dc6-2d36-4daf-a87a-fd902257d9e5)
- ![4](https://github.com/user-attachments/assets/cc725e18-cf02-431a-af92-3e137771b343)
+ ![image](https://github.com/user-attachments/assets/d9592524-af9b-46f5-82ad-c90835fc5277)
 −    Buka my.ini lalu cari port 3306
-![5](https://github.com/user-attachments/assets/92f3843c-f991-4e66-afec-729c44660893)
-−    Sebelum ganti port menjadi 3309, stop mysql terlebih dahulu di Terminal
-Admin
-![6](https://github.com/user-attachments/assets/9bd5a205-0040-4436-82d6-e904b70b40a8)
-- Setelah itu ubah port <br>
-![7](https://github.com/user-attachments/assets/9a4ff273-7774-4838-9e57-3b53f20a1cae)
+
+![image](https://github.com/user-attachments/assets/82278d46-ca2a-4336-b8b0-17a4ac2841a2)
+ 
+−    Lalu mengubah innodb
+ ![image](https://github.com/user-attachments/assets/aed47931-3169-49db-92f5-316b93d7ff86)
+−    Sebelum ganti port menjadi 3309, stop mysql terlebih dahulu di Terminal Admin
+![image](https://github.com/user-attachments/assets/aff1c677-4df8-44f4-af7b-5c8b48b566bd)
 -    Setelah port diubah, jalan kan lagi mysql di Terminal Admin
-![8](https://github.com/user-attachments/assets/48893f4b-9ae9-4784-b81e-bdeba06f0060)
-−    Kemudian jalankan lagi untuk cek port yang telah diubah (After)
-![9](https://github.com/user-attachments/assets/91f199f8-6ffa-492c-be65-782ba3173c20)
-b.   innodb_buffer_pool_size dr default 16M (menjadi 25% dari RAM )
-−    Cara untuk mengubah innodb sama seperti mengubah port, jadi cari innodb
- ![10](https://github.com/user-attachments/assets/fa944ad9-f4c0-4fae-95a3-502b8997bbe3)
+![image](https://github.com/user-attachments/assets/e59043a8-c5da-44a7-b959-41c27ef2b8ea)
 
--  Kemudian sesuai dengan kapasitas RAM Laptop masing masing
-   ![11](https://github.com/user-attachments/assets/b2615da0-1d2f-42c6-bfaf-bc1eaf4064f4)
-
--	Cek innodb dengan SHOW VARIABLES LIKE 'innodb_buffer_pool_size'; di command prompt (Before)
-![12](https://github.com/user-attachments/assets/e7ec9c2b-0526-4b91-bbf0-146eb5e86605)
-−    Cek innodb setelah innodb diubah (Ater)
-![13](https://github.com/user-attachments/assets/d6cee0c2-9e75-411c-86ae-d99c8c14420d)
+−    Kemudian jalankan lagi untuk mengecek yang telah diubah (After)
+![image](https://github.com/user-attachments/assets/8080350c-d16a-44af-b7e0-1a5859524dd3)
 
 6.   lakukan perubahan terhadap password root.
-![14](https://github.com/user-attachments/assets/6256e2dc-5a58-44d4-bc9c-95054d333fec)
+![image](https://github.com/user-attachments/assets/7caf9bb5-a0f9-40e2-8977-4761a10f3901)
+![image](https://github.com/user-attachments/assets/2e4566fb-e22a-4c70-a43b-020456371873)
+![image](https://github.com/user-attachments/assets/66306b1a-3d74-4c51-8d1f-caa48063246c)
 
 7.   Buat database dengan nama: kelompok_AB_nama_mhs
-![16](https://github.com/user-attachments/assets/2a302a12-7ee9-4f9a-bd82-406581c599da)
+![image](https://github.com/user-attachments/assets/a9cfe41c-8de8-4335-843d-43a072e96b56)
+
 
 ## 7. Sumber Referensi
 - [MySQL Documentation](https://dev.mysql.com/doc/)
-- [Panduan Praktikum Sistem Manajemen Basis Data](https://drive.google.com/file/d/1E1SBJXj0sZxMpt6FOjliDfrdSAc26y47/view?usp=sharing)
+- [Panduan Praktikum Sistem Manajemen Basis Data](https://drive.google.com/file/d/1OC7A3D9mPLyjolkJE7UBjXFeWGl3t5DT/view?usp=sharing)
