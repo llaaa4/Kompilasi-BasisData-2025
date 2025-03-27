@@ -1,27 +1,26 @@
 # Manajemen User, Role, dan Privilege dalam MySQL
 
 ## 1. Latar Belakang
-Manajemen pengguna dalam MySQL sangat penting untuk menjaga keamanan dan kontrol akses terhadap database. Dengan pengelolaan yang baik, administrator dapat mengatur siapa yang memiliki akses ke database, hak apa saja yang dimiliki pengguna, serta melakukan monitoring aktivitas pengguna.
+Manajemen pengguna pada MySQL memiliki peran yang krusial dalam memastikan keamanan serta pengendalian akses terhadap basis data. Melalui pengelolaan yang sistematis, administrator dapat menetapkan otorisasi akses bagi setiap pengguna, menentukan hak akses yang dimiliki, serta melakukan pemantauan terhadap aktivitas yang dilakukan oleh pengguna dalam sistem.
 
 ## 2. Problem
 Beberapa tantangan dalam manajemen pengguna di MySQL antara lain:
-- **Pengelolaan akun pengguna**: Bagaimana membuat, menghapus, dan mengamankan akun pengguna.
-- **Hak akses pengguna**: Memberikan privilege yang sesuai dengan kebutuhan.
-- **Manajemen role**: Mengelompokkan hak akses dalam role agar lebih mudah dikelola.
-- **Monitoring aktivitas pengguna**: Melacak aktivitas query yang dijalankan untuk keamanan.
+- **Pengelolaan akun pengguna**: Meliputi pembuatan, penghapusan, dan pengamanan akun.
+- **Pemberian hak akses**: Menyesuaikan privilege sesuai kebutuhan pengguna.
+- **Manajemen Role**: Mengelompokkan hak akses agar lebih mudah dikelola.
+- **Pemantauan aktivitas**: Melacak aktivitas pengguna untuk menjaga keamanan sistem.
 
 ## 3. Solusi/Skenario Aktivitas
 ### a. Pembuatan dan Penghapusan User
 - Membuat user baru:
   ```sql
-  CREATE USER 'elsa'@'localhost' IDENTIFIED BY '12345678';
-  CREATE USER 'puri'@'localhost' IDENTIFIED BY 'puri02';
-  CREATE USER 'irfan'@'localhost' IDENTIFIED BY 'irfan03';
-  CREATE USER 'rifky'@'localhost' IDENTIFIED BY 'rifky04';
+  CREATE USER 'della'@'localhost' IDENTIFIED BY 'della';
+CREATE USER 'alivia'@'localhost' IDENTIFIED BY 'alivia';
   ```
 - Menghapus user:
   ```sql
-  DROP USER 'irfan'@'localhost';
+ CREATE USER 'veri'@'localhost' IDENTIFIED BY 'veri';
+DROP USER ‘veri’@’localhost’;
   ```
 
 ### b. Manajemen Hak Akses dan Privilege
@@ -38,19 +37,20 @@ Beberapa tantangan dalam manajemen pengguna di MySQL antara lain:
 Sejak MySQL 8.0, fitur **role** diperkenalkan untuk mempermudah pengelolaan hak akses:
 - Membuat role:
   ```sql
-  CREATE ROLE 'role_select_insert';
+ CREATE ROLE 'role_della_select_insert';
   ```
 - Memberikan privilege ke role:
   ```sql
-  GRANT SELECT, INSERT ON database_example.* TO 'role_select_insert';
+  GRANT SELECT, INSERT ON 06_a_veri_mhs.* TO
+'role_della_select_insert';
   ```
 - Memberikan role kepada user:
   ```sql
-  GRANT 'role_select_insert' TO 'rifky'@'localhost';
+  GRANT ‘role_della_select_insert’ TO ‘della’@’localhost’;
   ```
 - Menghapus role dari user:
   ```sql
-  REVOKE 'role_select_insert' FROM 'rifky'@'localhost';
+  REVOKE 'role_della_select_insert' FROM 'della'@'localhost';
   ```
 
 ### d. Monitoring Akses dan Aktivitas Pengguna
@@ -66,46 +66,51 @@ Monitoring dilakukan untuk memeriksa aktivitas pengguna:
   ```
 
 ## 4. Pembahasan
-Dengan menerapkan manajemen user, role, dan privilege yang baik, database menjadi lebih aman dan terstruktur. Administrator dapat lebih mudah mengontrol akses pengguna, menghindari perubahan data yang tidak diinginkan, serta memonitor aktivitas yang mencurigakan.
+Dengan penerapan manajemen pengguna, peran (role), dan hak akses (privilege) yang tepat, basis data dapat terjaga keamanannya serta memiliki struktur pengelolaan yang lebih tertata. Administrator juga dapat mengendalikan akses dengan lebih efektif, mencegah perubahan data yang tidak sah, serta memantau aktivitas yang berpotensi mencurigakan.
 
 ## 5. Kesimpulan
-Manajemen pengguna dalam MySQL sangat penting untuk menjaga integritas dan keamanan database. Dengan menggunakan user, role, privilege, dan monitoring, administrator dapat memastikan akses yang sesuai dan menghindari potensi ancaman keamanan.
+Keamanan database dapat ditingkatkan dengan pemberian role yang sesuai bagi setiap pengguna agar hanya memiliki akses yang diperlukan. Monitoring aktivitas juga penting untuk mendeteksi tindakan mencurigakan dan menjaga integritas data. Oleh karena itu, manajemen hak akses menjadi dasar utama dalam pengelolaan sistem basis data yang aman dan efisien di lingkungan produksi.
 
 ## 6. Bukti Dukung Gambar
 1.   Lakukan proses pembuatan username sebanyak jumlah kelompok anda. Tuliskan script
 dan tampilkan hasilnya.
-![1](https://github.com/user-attachments/assets/3be9bd51-b93d-465c-a0cd-199597862be0)
+![image](https://github.com/user-attachments/assets/86be45d0-8c6f-4706-92e7-ae1ce3ed1cb8)
 
 2.   Lakukan penghapusan username terhadap user yang sudah dibuat. Tuliskan script dan tampilkan hasilnya
-![2](https://github.com/user-attachments/assets/d8d1ef51-ab90-4364-9e5a-e389efea1476)
+![image](https://github.com/user-attachments/assets/f8181c55-20b3-4979-8374-7fd18558b1fe)
 
 3.   Buat role dengan “role_nama_anda_insert_select” → role_andi_select_insert.
- ![3](https://github.com/user-attachments/assets/540a5519-49c5-4879-ace9-a9dcca7ab343)
+ ![image](https://github.com/user-attachments/assets/fa316714-fa6f-4951-86bd-37d69e5e4103)
  
-4.   Berikan privilege select, insert kedalam role diatas. 
+4.   Berikan privilege select, insert kedalam role diatas.
+![image](https://github.com/user-attachments/assets/c88f194f-3f72-4726-b8af-e520543710ec)
+
 5.   Buat role dengan “role_nama_anda_create_drop” → role_andi_create_drop.
-![5](https://github.com/user-attachments/assets/2f1bbb5e-367c-4ce1-ac6f-7a31cd50ab92)
+![image](https://github.com/user-attachments/assets/8b1b63b1-7299-4777-b195-ed056824dedc)
 
 6.   Berikan privilege create, drop kedalam role diatas.
-![6](https://github.com/user-attachments/assets/3bdea653-9f4d-40e9-8799-1f3ff26fd88a)
+![image](https://github.com/user-attachments/assets/1e083851-26dd-4231-aa31-d83ad13c3b66)
 
 7.   Berikan 2 user kedalam masing-masing role diatas.
-![7](https://github.com/user-attachments/assets/326a676a-faed-4855-ab7f-b78c2525af02)
+![image](https://github.com/user-attachments/assets/885789b3-9a51-490d-b55c-b723d79f2078)
 
 8.   Lakukan pengujian sebelum dan sesudah user diberikan role.
 - BEFORE : <br>
-![8a](https://github.com/user-attachments/assets/e5458975-c92d-488e-bc2b-8382e4e51db2)
+![image](https://github.com/user-attachments/assets/9a27874a-a3a0-42a7-a6ca-30492e0e248a)
+
 - AFTER : <br>
-![8b](https://github.com/user-attachments/assets/2d8a8612-64e8-40c1-ad46-e96308ceccfd)
+![image](https://github.com/user-attachments/assets/fd6a9c95-6c73-4d97-845b-172045f928c1)
 
 9.   Lepas role dari user diatas. Sehingga user menjadi tidak memiliki role.
-![9](https://github.com/user-attachments/assets/8e9d5a58-48a8-41d2-a74f-37e6b55bd591)
+![image](https://github.com/user-attachments/assets/bb4cbfcb-b4e0-4e03-abe2-8dd19e2a069b)
 
 10.  Lakukan  konfigurasi  untuk  proses  monitoring  proses  seperti  contoh  diatas,  dan  lakukan beberapa kali proses query. Kemudian lihat di log nya dan tampilkan hasilnya.  
 - TABEL DI USER IRFAN <br>
-![10a](https://github.com/user-attachments/assets/6c6d3d65-df2a-4395-b3d6-da4ab5f67ffc)
+![image](https://github.com/user-attachments/assets/e854b476-5817-49d0-aaec-02c6d909e944)
+
 - TABEL DI USER ROOT <br>
-![10b](https://github.com/user-attachments/assets/b9187698-069a-4c97-bade-fe04d1dbb0e9)
+![image](https://github.com/user-attachments/assets/063d6efb-fb94-45bd-a949-ae2d7bfea6e5)
+
 
 ## 7. Sumber Referensi
 - [MySQL Documentation](https://dev.mysql.com/doc/)
