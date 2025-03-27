@@ -1,7 +1,7 @@
 # Instalasi dan Konfigurasi MySQL: Panduan Lengkap
 
 ## 1. Latar Belakang
-MySQL adalah sistem manajemen basis data relasional (RDBMS) yang populer dan banyak digunakan dalam berbagai aplikasi, mulai dari website hingga sistem enterprise. Dalam penggunaan MySQL, penting untuk memahami cara instalasi dan konfigurasi agar performanya optimal sesuai kebutuhan sistem.
+MySQL merupakan sistem manajemen basis data relasional (RDBMS) yang banyak digunakan dalam berbagai jenis aplikasi, mulai dari situs web hingga sistem berskala enterprise. Untuk memaksimalkan kinerja MySQL, pemahaman mengenai proses instalasi dan konfigurasi sangatlah penting agar sesuai dengan kebutuhan dan karakteristik sistem yang digunakan.
 
 ## 2. Problem
 Beberapa tantangan yang sering muncul saat menginstal dan mengonfigurasi MySQL:
@@ -14,49 +14,48 @@ Beberapa tantangan yang sering muncul saat menginstal dan mengonfigurasi MySQL:
 Berikut langkah-langkah untuk menginstal dan mengonfigurasi MySQL secara optimal:
 
 ### a. Instalasi MySQL
-1. Buka browser dan cari "Download MySQL".
-2. Pilih "MySQL Community (GPL) Downloads".
-3. Unduh "MySQL Installer for Windows".
-4. Pilih opsi **Server Only** dan klik **Next**.
-5. Klik **Execute** untuk memulai instalasi.
-6. Setelah instalasi selesai, lanjutkan dengan konfigurasi awal.
+1. Buka website MySQL lalu pilih menu unduhan.
+2. Pilih MySQL Community lalu klik.
+3. Pilih MySQL Installer for Windows.
+4. Pilih yang paling bawah lalu klik download.
+5. Klik just start my download.
+6. Setelah terdownload akan muncul pada file download.
+7. Buka File.
+8. Lalu MySQL akan otomatis terbuka lalu pilih server only dan klik next.
+9. Klik execute maka product akan terdownload setelah itu klik next terus sampai muncul form untuk mengisi password.
+10. Masukkan password lalu next terus.
+11. Klik execute lalu finish, next lagi lalu finish lagi maka mysql sudah terinstall.
+12. Search mysql 8.0 command line client untuk mensetting.
+13. Masukkan password yang sudah dimasukkan tadi setelah itu kita sudah masuk ke dalam root mysql.
 
-### b. Mengubah Port MySQL dari 3306 ke 3309
-1. Masuk ke MySQL menggunakan **Command Prompt**.
-2. Cek port saat ini dengan perintah:
+### b. Mengubah Port MySQL dari 3306 ke 3309 dan Mengubah `innodb_buffer_pool_size`
+1. Membuka MySQL Command Line Client, kemudian login dengan password **“your_password”**.
+2. Cek default port dan innodb_buffer_pool_size
    ```sql
-   SHOW VARIABLES LIKE 'port';
+   SHOW VARIABLES WHERE Variable_name IN ('port','innodb_buffer_pool_size');
    ```
 3. Cari file `my.ini` menggunakan `%PROGRAMDATA%`.
 4. Buka file `my.ini` dan ubah nilai `port` dari `3306` ke `3309`.
-5. Stop MySQL sebelum menyimpan perubahan.
-6. Restart MySQL dan cek kembali port dengan perintah yang sama.
+5. Ubah dari `128M` ke `4096M`.
+6. Stop MySQL sebelum menyimpan perubahan.
+7. Restart MySQL dan cek kembali port dengan perintah yang sama.
 
-### c. Mengubah `innodb_buffer_pool_size`
-1. Buka file `my.ini`.
-2. Cari parameter `innodb_buffer_pool_size`.
-3. Ubah dari `16M` menjadi **25% dari total RAM** yang tersedia.
-4. Restart MySQL untuk menerapkan perubahan.
-5. Cek perubahan dengan perintah:
-   ```sql
-   SHOW VARIABLES LIKE 'innodb_buffer_pool_size';
-   ```
-
-### d. Mengubah Password Root MySQL
-1. Masuk ke MySQL sebagai root dengan:
+### c. Mengubah Password Root MySQL
+1. Lanjutkan dengan mengubah password:
    ```sh
-   mysql -u root -p
+   SELECT user, host, authentication_string FROM mysql.user WHERE user = 'root';
    ```
 2. Ubah password dengan perintah:
    ```sql
-   ALTER USER 'root'@'localhost' IDENTIFIED BY 'password_baru';
+   ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+   FLUSH PRIVILEGES;
    ```
 3. Verifikasi perubahan dengan login ulang.
 
-### e. Membuat Database Baru
+### d. Membuat Database Baru
 1. Buat database dengan format `kelompok_AB_nama_mhs`:
    ```sql
-   CREATE DATABASE kelompok_A1_irfan;
+   CREATE DATABASE 06_A_Veri_mhs;
    ```
 2. Cek apakah database berhasil dibuat:
    ```sql
@@ -64,10 +63,10 @@ Berikut langkah-langkah untuk menginstal dan mengonfigurasi MySQL secara optimal
    ```
 
 ## 4. Pembahasan
-Instalasi MySQL harus disertai dengan konfigurasi yang sesuai agar performanya optimal. Mengubah port dapat menghindari konflik dengan layanan lain, sementara peningkatan `innodb_buffer_pool_size` membantu dalam optimasi performa query. Selain itu, perubahan password root sangat penting untuk menjaga keamanan database.
+Proses instalasi MySQL perlu diikuti dengan konfigurasi yang tepat agar kinerjanya dapat berjalan secara optimal. Penyesuaian port dapat mencegah terjadinya konflik dengan layanan lain, sementara peningkatan nilai innodb_buffer_pool_size berperan penting dalam mengoptimalkan performa query. Di samping itu, penggantian password root merupakan langkah krusial untuk memastikan keamanan basis data.
 
 ## 5. Kesimpulan
-Dengan mengikuti langkah-langkah instalasi dan konfigurasi ini, MySQL dapat berjalan dengan lebih optimal dan aman. Dokumentasi setiap perubahan juga penting untuk mempermudah troubleshooting di masa mendatang.
+Penerapan instalasi dan konfigurasi MySQL yang tepat menjadi langkah awal penting dalam menjaga performa dan keamanan sistem. Penyesuaian parameter seperti port dan alokasi memori perlu dilakukan sesuai kebutuhan. Selain itu, pengaturan keamanan serta dokumentasi setiap perubahan konfigurasi berperan penting dalam mendukung pemeliharaan dan troubleshooting di masa mendatang.
 
 ## 6. Bukti Dukung Gambar
 Konfigurasi pada MySQL
