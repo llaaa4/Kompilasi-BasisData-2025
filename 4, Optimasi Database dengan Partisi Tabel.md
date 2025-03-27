@@ -146,4 +146,4 @@ Hasil waktu eksekusi:
 
 ## **Referensi**  
 - [Dokumentasi MySQL Partisi Tabel](https://dev.mysql.com/doc/refman/8.0/en/partitioning.html)  
-- [Praktikum Sistem Manajemen Basis Data](https://drive.google.com/file/d/1owdQasYnWgnII95wxeOau5ixu9UYlGoS/view?usp=sharing)
+- [Praktikum Sistem Manajemen Basis Data](https://drive.google.com/file/d/1YGY-s6ULwffHcAX69vc4-AAlst_k1uw7/view?usp=sharing)
