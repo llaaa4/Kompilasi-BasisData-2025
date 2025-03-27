@@ -102,7 +102,7 @@ dan tampilkan hasilnya.
 ![image](https://github.com/user-attachments/assets/fd6a9c95-6c73-4d97-845b-172045f928c1)
 
 9.   Lepas role dari user diatas. Sehingga user menjadi tidak memiliki role.
-![image](https://github.com/user-attachments/assets/bb4cbfcb-b4e0-4e03-abe2-8dd19e2a069b)
+ ![image](https://github.com/user-attachments/assets/bb4cbfcb-b4e0-4e03-abe2-8dd19e2a069b)
 
 10.  Lakukan  konfigurasi  untuk  proses  monitoring  proses  seperti  contoh  diatas,  dan  lakukan beberapa kali proses query. Kemudian lihat di log nya dan tampilkan hasilnya.  
 - TABEL DI USER IRFAN <br>
@@ -114,4 +114,4 @@ dan tampilkan hasilnya.
 
 ## 7. Sumber Referensi
 - [MySQL Documentation](https://dev.mysql.com/doc/)
-- [Panduan Praktikum Sistem Manajemen Basis Data](https://drive.google.com/file/d/10rLU8k_D0NKkDUkn5Ec-Njk71qbuqmta/view?usp=sharing)
+- [Panduan Praktikum Sistem Manajemen Basis Data](https://drive.google.com/file/d/11hwQd_RRfSMjA7BCzRSyalOoSSAro3Wa/view?usp=sharing)
